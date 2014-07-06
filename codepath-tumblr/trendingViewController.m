@@ -9,6 +9,8 @@
 #import "trendingViewController.h"
 
 @interface trendingViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -26,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _scrollView.contentSize = self.imageView.frame.size;
 }
 
 - (void)didReceiveMemoryWarning
