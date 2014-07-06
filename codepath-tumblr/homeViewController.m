@@ -54,7 +54,7 @@
         self.loginView.center = CGPointMake(self.loginView.center.x, 862);
     }];
 
-    ;
+    
 
 }
 @end

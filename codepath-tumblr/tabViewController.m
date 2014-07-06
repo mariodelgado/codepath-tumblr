@@ -18,11 +18,15 @@
 @property (nonatomic, strong) accountViewController *accountViewController;
 @property (nonatomic, strong) trendingViewController *trendingViewController;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *composeView;
 @property (weak, nonatomic) IBOutlet UIButton *homeButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *accountButton;
 @property (weak, nonatomic) IBOutlet UIButton *trendingButton;
 @property (weak, nonatomic) IBOutlet UIImageView *explorePopup;
+@property (weak, nonatomic) IBOutlet UIButton *onCompose;
+- (IBAction)onCancel:(id)sender;
+
 - (IBAction)onHome:(id)sender;
 - (IBAction)onSearch:(id)sender;
 - (IBAction)onCompose:(id)sender;
@@ -52,8 +56,9 @@
     self.contentView.clipsToBounds = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     [self onHome:nil];
-
-
+    self.composeView.center = CGPointMake(self.composeView.center.x,850);
+    
+    
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -73,6 +78,8 @@
         self.explorePopup.center = CGPointMake(self.explorePopup.center.x, 495);
     } completion:nil];
 }
+
+
 
 - (IBAction)onHome:(id)sender {
      [self searchBounce];
@@ -97,6 +104,22 @@
 }
 
 - (IBAction)onCompose:(id)sender {
+    [UIView animateWithDuration:.3 animations:^{
+        self.composeView.center = CGPointMake(self.composeView.center.x, 284);
+    }];
+        [[[[UIApplication sharedApplication] delegate] window] addSubview:_composeView];
+    
+}
+
+- (IBAction)onCancel:(id)sender {
+    [UIView animateWithDuration:.3
+                          delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                              self.composeView.center = CGPointMake(self.composeView.center.x, -568);
+                          } completion:^(BOOL finished) {
+                              self.composeView.center = CGPointMake(self.composeView.center.x, 852);
+                          }];
+
+    
 }
 
 - (IBAction)onAccount:(id)sender {

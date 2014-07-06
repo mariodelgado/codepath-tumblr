@@ -8,9 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="tabViewController">
             <connections>
                 <outlet property="accountButton" destination="Wv9-G0-7OO" id="ChR-Es-plN"/>
+                <outlet property="composeView" destination="jJn-LW-RcP" id="tBm-E9-Cwu"/>
                 <outlet property="contentView" destination="3er-kg-keg" id="gAz-0c-Fiv"/>
                 <outlet property="explorePopup" destination="nod-30-P3I" id="1Do-DC-jbk"/>
                 <outlet property="homeButton" destination="RlX-kA-6dI" id="k7j-nd-fjd"/>
+                <outlet property="onCompose" destination="ZsE-wJ-LLW" id="FNm-Yd-rev"/>
                 <outlet property="searchButton" destination="Qi4-WF-F4P" id="lOL-mp-Lmh"/>
                 <outlet property="trendingButton" destination="fd6-rK-XrP" id="GrN-4u-YbW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -95,6 +97,27 @@
                     <rect key="frame" x="0.0" y="464" width="185" height="77"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <view contentMode="scaleToFill" id="jJn-LW-RcP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compose" id="R5A-ot-bJ0">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="sPC-if-AwM">
+                            <rect key="frame" x="106" y="526" width="108" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onCancel:" destination="-1" eventType="touchUpInside" id="F3s-Xd-IF5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -104,6 +127,7 @@
     <resources>
         <image name="account_icon" width="35" height="35"/>
         <image name="account_selected_icon" width="35" height="35"/>
+        <image name="compose" width="320" height="568"/>
         <image name="compose_button" width="50" height="35"/>
         <image name="explore" width="185" height="77"/>
         <image name="home_icon" width="35" height="35"/>
