@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *loginView;
 @property (weak, nonatomic) IBOutlet UIImageView *loginView1;
+@property (weak, nonatomic) IBOutlet UIImageView *spinner;
 - (IBAction)onLogin:(id)sender;
 - (IBAction)onLoginButton:(id)sender;
 
@@ -33,6 +34,9 @@
 {
     [super viewDidLoad];
     self.scrollView.contentSize = self.homeView.frame.size;
+    [UIView animateWithDuration:5 delay:.5 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear animations:^{
+        self.spinner.transform = CGAffineTransformRotate(self.spinner.transform, M_PI  );
+    } completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

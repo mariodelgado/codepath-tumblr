@@ -25,6 +25,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *trendingButton;
 @property (weak, nonatomic) IBOutlet UIImageView *explorePopup;
 @property (weak, nonatomic) IBOutlet UIButton *onCompose;
+@property (weak, nonatomic) IBOutlet UIImageView *text1;
+@property (weak, nonatomic) IBOutlet UIImageView *photo1;
+@property (weak, nonatomic) IBOutlet UIImageView *quote1;
+@property (weak, nonatomic) IBOutlet UIImageView *link1;
+@property (weak, nonatomic) IBOutlet UIImageView *chat1;
+@property (weak, nonatomic) IBOutlet UIImageView *video1;
+@property (weak, nonatomic) IBOutlet UIButton *onCancel1;
 - (IBAction)onCancel:(id)sender;
 
 - (IBAction)onHome:(id)sender;
@@ -57,8 +64,13 @@
     [self setNeedsStatusBarAppearanceUpdate];
     [self onHome:nil];
     self.composeView.center = CGPointMake(self.composeView.center.x,850);
-    
-    
+   // self.onCancel1.center = CGPointMake(160, 610);
+    self.text1.center = CGPointMake(self.text1.center.x, 2900);
+    self.photo1.center = CGPointMake(self.photo1.center.x, 1900);
+    self.quote1.center = CGPointMake(self.quote1.center.x, 2900);
+    self.link1.center = CGPointMake(self.link1.center.x, 2900);
+    self.chat1.center = CGPointMake(self.chat1.center.x, 1900);
+    self.video1.center = CGPointMake(self.video1.center.x,2900);
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -89,6 +101,7 @@
     self.homeButton.selected = YES;
     self.searchButton.selected = NO;
     self.accountButton.selected = NO;
+    self.composeView.alpha = 0;
     self.trendingButton.selected = NO;
    
 }
@@ -104,23 +117,77 @@
 }
 
 - (IBAction)onCompose:(id)sender {
-    [UIView animateWithDuration:.3 animations:^{
-        self.composeView.center = CGPointMake(self.composeView.center.x, 284);
-    }];
+    self.composeView.center = CGPointMake(self.composeView.center.x, 284);
+
+
+   [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:.8 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+       self.composeView.alpha = 1;
+       self.text1.center = CGPointMake(self.text1.center.x, 204);
+       self.photo1.center = CGPointMake(self.photo1.center.x, 204);
+       self.quote1.center = CGPointMake(self.quote1.center.x, 204);
+       self.onCancel1.center = CGPointMake(self.composeView.center.x, 542);
+
+   } completion:nil];
+    
+    
+    [UIView animateWithDuration:1 delay:0.1 usingSpringWithDamping:.8 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+        self.link1.center = CGPointMake(self.link1.center.x, 324);
+        self.chat1.center = CGPointMake(self.chat1.center.x, 324);
+        self.video1.center = CGPointMake(self.video1.center.x, 324);
+        
+    } completion:nil];
+
+
+
+
         [[[[UIApplication sharedApplication] delegate] window] addSubview:_composeView];
     
 }
 
 - (IBAction)onCancel:(id)sender {
-    [UIView animateWithDuration:.3
-                          delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                              self.composeView.center = CGPointMake(self.composeView.center.x, -568);
-                          } completion:^(BOOL finished) {
-                              self.composeView.center = CGPointMake(self.composeView.center.x, 852);
-                          }];
+
+
+    
+    
+    
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+        self.composeView.alpha = 1;
+        self.text1.center = CGPointMake(self.text1.center.x, -504);
+        self.photo1.center = CGPointMake(self.photo1.center.x, -504);
+        self.quote1.center = CGPointMake(self.quote1.center.x, -504);
+        self.onCancel1.center = CGPointMake(160, 610);
+
+    } completion:nil];
+    
+    
+    [UIView animateWithDuration:1 delay:0.1 usingSpringWithDamping:.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+        self.link1.center = CGPointMake(self.link1.center.x, -324);
+        self.chat1.center = CGPointMake(self.chat1.center.x, -324);
+        self.video1.center = CGPointMake(self.video1.center.x, -324);
+    } completion:nil
+     ];
+
+    [UIView animateWithDuration:.3 delay:.3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        self.composeView.alpha = 0;
+        
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:.3 animations:^{
+        } completion:^(BOOL finished) {
+            self.composeView.center = CGPointMake(self.composeView.center.x, 852);
+            self.text1.center = CGPointMake(self.text1.center.x, 2900);
+            self.photo1.center = CGPointMake(self.photo1.center.x, 1900);
+            self.quote1.center = CGPointMake(self.quote1.center.x, 2900);
+            self.link1.center = CGPointMake(self.link1.center.x, 2900);
+            self.chat1.center = CGPointMake(self.chat1.center.x, 1900);
+            self.video1.center = CGPointMake(self.video1.center.x,2900);
+        }];
+    }];
 
     
 }
+
+
 
 - (IBAction)onAccount:(id)sender {
     [self.contentView addSubview:self.accountViewController.view];
